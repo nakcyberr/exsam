@@ -103,6 +103,7 @@ describe('remove score by student and subject', () => {
             },
             {
                 subject: 'science',
+                // score ของ luffy มันต้องเป็น 60 หรือป่าวครับ
                 students: [{ name: 'luffy', score: 15 }, { name: 'zoro', score: 25 }]
             }
         ];

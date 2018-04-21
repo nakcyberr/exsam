@@ -58,13 +58,13 @@ exports.updateStudentScore = (store, { name, scores }) => {
  */
 exports.removeStudentScoreBySubject = (store, { name, subject }) => {
     // code here
-   const data = _.map(store , (item)=>{
+    _.map(store , (item)=>{
         if(item.subject === subject){
             const removeStudentAndSubject = _.remove(item.students,(o)=> o.name !== name);
             item.students = removeStudentAndSubject;
             return item;
         }else{
-           const eeeee =  _.map(item , (items)=>{
+            _.map(item , (items)=>{
                  _.update(items, '[0].score', (n) => n-45)
                 return item
             })
@@ -80,4 +80,10 @@ exports.removeStudentScoreBySubject = (store, { name, subject }) => {
  */
 exports.transformData = store => {
     // code here
+    // console.log('store',store);
+    // _.map(store , (item)=>{
+
+    // })
+
+    // return store
 };
