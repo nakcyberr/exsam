@@ -10,6 +10,45 @@ const _ = require('lodash');
  */
 exports.updateStudentScore = (store, { name, scores }) => {
     // code here
+    let isNewSubject = false;
+    const data = _.map(store,(item)=>{
+      const subjectPush = Object.keys(scores)
+      if(subjectPush.includes(item.subject) && scores[item.subject]){
+        let isOldstudent = false;
+        const updateOldStudentScore = _.map(item.students , (student)=>{
+            if(student.name === name){
+                isOldstudent = true;
+                student.score  = scores[item.subject]
+                return student
+            }else{
+                return student
+            }
+        });
+        const studentUpdate = !isOldstudent? 
+            _.concat(item.students,{ name , score: scores[item.subject]}) 
+            : updateOldStudentScore
+
+        item.students = studentUpdate;
+        return item
+      }else{
+        const newUpdateScoreStudents = _.remove(item.students,(o)=> o.name !== name)
+        item.students = newUpdateScoreStudents;
+        isNewSubject = true;
+       return item
+      }
+    })
+
+    if(isNewSubject){
+        const updateNewSubject = Object.keys(scores).map((scoresSubject)=>{
+            return {
+                subject: scoresSubject, 
+                students: [{ name , score: scores[scoresSubject] }]
+            }
+        })
+        return _.concat(data,updateNewSubject)
+    }else{
+        return data
+    }
 };
 
 /**
