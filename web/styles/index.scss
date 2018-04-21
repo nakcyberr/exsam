@@ -1,5 +1,9 @@
 :global {
     // global style here
+    body{
+        background-color: ghostwhite;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
     .logo-spin {
         animation: App-logo-spin infinite 3s linear;
     }
@@ -11,5 +15,72 @@
         to {
             transform: rotate(360deg);
         }
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+    }
+    .card{
+        width: 70vh;
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        box-shadow: 0px 1px 1px 1px #b5aaaa;
+        background-color: #F8F7FD;
+    }
+    .form-login{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 1vw;
+    }
+    .email-form, .password-form  {
+        font-size: 16px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin: 1vh;
+        input{
+            border: 2px solid gray;
+            border-radius: 1rem;
+            text-indent: 1rem;
+            padding: .5rem;
+            margin: .5rem 0;
+            &:focus{
+                border: 2px solid #242526;
+            }
+        }
+    }
+    .login-button{
+        border: 0;
+        background-color: deepskyblue;
+        color: white;
+        margin: 0 4vw;
+        padding: .7rem;
+        border-radius: .3rem;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    .footer{
+        display: flex;
+        justify-content: space-around;
+        
+        a{
+            color: deepskyblue;
+            font-weight: bold;
+            text-decoration: none;
+            &:hover{
+                cursor: pointer;
+                text-decoration: underline;
+            }
+        }
+    }
+    .error {
+        color: red;
     }
 }
